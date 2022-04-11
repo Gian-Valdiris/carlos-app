@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const dataCalcs  = {q_k:null,p_k:null,vk:1,cantidad:4,vm:[],gkm:[],bkm:[],tk:[],tm:[],tkm:[]}
+  const dataCalcs  = {q_k:null,p_k:null,vk:'',cantidad:'',vm:[],gkm:[],bkm:[],tk:[],tm:[],tkm:[]}
   const [data,setData]= useState(dataCalcs)
   const grados=numero=>(numero*Math.PI)/180;
   const setNumbers=(event)=>{
