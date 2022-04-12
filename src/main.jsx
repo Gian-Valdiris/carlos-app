@@ -5,7 +5,7 @@ import App from './App'
 import Myapp from './Pdf'
 ReactDOM.render(
   <React.StrictMode>
-    <Myapp />
+    <App  />
   </React.StrictMode>,
   document.getElementById('root')
 )

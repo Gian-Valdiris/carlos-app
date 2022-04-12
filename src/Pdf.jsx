@@ -4,11 +4,7 @@ import PDFViewer from 'pdf-viewer-reactjs'
 
 const ExamplePDFViewer = () => {
     return (
-        <PDFViewer
-            document={{
-                url: 'http://municipioscolombia.co/Huila/neiva/FORMULARIO%20ICA%20NEIVA.pdf',
-            }}
-        />
+      <embed src="https://pictures-ig.s3.amazonaws.com/Algoritmos.An%C3%A1lisis.pdf" type="application/pdf" width="400" height="600"></embed>
     )
 }
 

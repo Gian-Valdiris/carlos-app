@@ -6,6 +6,7 @@ import './App.css'
 function App() {
 
   const dataCalcs  = {q_k:null,p_k:null,vk:'',cantidad:'',vm:[],gkm:[],bkm:[],tk:[],tm:[],tkm:[]}
+  const  [display, setDisplay] = useState(true)
   const [data,setData]= useState(dataCalcs)
   const grados=numero=>(numero*Math.PI)/180;
   const setNumbers=(event)=>{
@@ -48,14 +49,17 @@ function App() {
       q_k
     })
   }
+  const hidden = ()=>{
+
+  }
 
   return (
     <div className="App">
       <div className='container'>      
       <span>vk</span>
-      <input  placeholder="vk"value={data.vk} name="vk" onChange={setNumbers} type="number" /><br/>
+      <input  placeholder="vk" type="text" value={data.vk} name="vk" onChange={setNumbers}  /><br/>
       <span>Cantidad</span>
-      <input  placeholder="cantidad"value={data.cantidad} name="cantidad" onChange={setNumbers} type="number" /><br/>
+      <input  placeholder="cantidad" type="text" value={data.cantidad} name="cantidad" onChange={setNumbers}  /><br/>
       <span>vm</span>
       <input type="text" name="vm" value={data.vm.join()}  onChange={setList} /><br/>
       <span>gkm</span>
@@ -71,8 +75,8 @@ function App() {
       <button onClick={calcular}>
         Calcular
       </button>
-      <button onClick={calcular}>
-        Ocultar
+      <button onClick={()=>setDisplay(display=>!display)}>
+        {display?'Ocultar':'carlos'}
       </button>
       {
         data.p_k && (<h4  className='pk'>Pk: {data.p_k}</h4>)
@@ -81,14 +85,10 @@ function App() {
         data.q_k && (<h4 className='qk'>QK : {data.q_k}</h4>)
       }
       </div>
-      {
-        /*
-      <PDFViewer
-            document={{
-                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-            }}
-        />*/
-          }
+      <div className="pdf" style={display ? {display:'block'} : {display:'none'} }>
+        <embed src="https://pictures-ig.s3.amazonaws.com/Algoritmos.An%C3%A1lisis.pdf" type="application/pdf" width="400" height="600"></embed>
+      </div>
+      
     </div>
   )
 }

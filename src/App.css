@@ -7,6 +7,7 @@ body{
 .App {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .App .container{
   max-width: 600px;
@@ -34,4 +35,7 @@ body{
   padding: 5px 0;
   text-align: center;
 
+}
+.App .pdf{
+  border: 1px solid #000;
 }
