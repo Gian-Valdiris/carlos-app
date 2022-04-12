@@ -1,5 +1,9 @@
 import { useState,useEffect } from 'react'
 import PDFViewer from 'pdf-viewer-reactjs'
+import image1 from './assets/img1.jpg'
+import image2 from './assets/img2.jpg'
+import image3 from './assets/img3.jpg'
+import image4 from './assets/img4.jpg'
 
 import './App.css'
 
@@ -86,7 +90,11 @@ function App() {
       }
       </div>
       <div className="pdf" style={display ? {display:'block'} : {display:'none'} }>
-        <embed src="https://pictures-ig.s3.amazonaws.com/Algoritmos.An%C3%A1lisis.pdf" type="application/pdf" width="400" height="600"></embed>
+        <img src={image1} alt="" />
+        <img src={image2} alt="" />
+        <img src={image3} alt="" />
+        <img src={image4} alt="" />
+
       </div>
       
     </div>

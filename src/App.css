@@ -36,6 +36,6 @@ body{
   text-align: center;
 
 }
-.App .pdf{
-  border: 1px solid #000;
+.App .pdf img{
+  width: 400px;
 }
