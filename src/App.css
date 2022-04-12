@@ -22,3 +22,16 @@ body{
   color:red;
   font-weight: bold;
 }
+.App .pk{
+  background-color: blue;
+  color:#fff;
+  padding: 5px 0;
+  text-align: center;
+}
+.App .qk {
+  background-color: green;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+
+}

@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-
+import Myapp from './Pdf'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Myapp />
   </React.StrictMode>,
   document.getElementById('root')
 )

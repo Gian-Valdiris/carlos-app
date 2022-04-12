@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import logo from './logo.svg'
+import PDFViewer from 'pdf-viewer-reactjs'
 
 import './App.css'
 
@@ -71,13 +71,24 @@ function App() {
       <button onClick={calcular}>
         Calcular
       </button>
+      <button onClick={calcular}>
+        Ocultar
+      </button>
       {
-        data.p_k && (<h4>Pk: {data.p_k}</h4>)
+        data.p_k && (<h4  className='pk'>Pk: {data.p_k}</h4>)
       }
       {
-        data.q_k && (<h4>QK : {data.q_k}</h4>)
+        data.q_k && (<h4 className='qk'>QK : {data.q_k}</h4>)
       }
       </div>
+      {
+        /*
+      <PDFViewer
+            document={{
+                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+            }}
+        />*/
+          }
     </div>
   )
 }
