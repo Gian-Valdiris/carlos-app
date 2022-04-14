@@ -11,13 +11,19 @@ function App() {
 
   const dataCalcs  = {q_k:null,p_k:null,vk:'',cantidad:'',vm:[],gkm:[],bkm:[],tk:[],tm:[],tkm:[]}
   const  [display, setDisplay] = useState(true)
+  const [dataHkmNkm,setHkmNkm] = useState({
+    hkm:null,
+    nkm:null,
+  })
   const [data,setData]= useState(dataCalcs)
   const grados=numero=>(numero*Math.PI)/180;
   const setNumbers=(event)=>{
+
     setData({
       ...data,
-      [event.target.name]:Number(event.target.value)
+      [event.target.name]:(event.target.value)
     })
+  
   }
   const setList=(event)=>{
       setData(d=>({...d,[event.target.name]:event.target.value.split(',')}))
@@ -35,6 +41,11 @@ function App() {
   const calcular=()=>{
     let  primeraSuma = 0;
     let  segundaSuma = 0;
+    setData({
+      ...data,
+      vk:Number(data.vk),
+      cantidad:Number(data.cantidad)
+    })
     const {bkm,cantidad,gkm,tk,tkm,tm,vk,vm} = data;
     for(let i=0;i<cantidad;i++){
 
@@ -53,15 +64,25 @@ function App() {
       q_k
     })
   }
-  const hidden = ()=>{
 
+  const calcularRapshonMatrices=()=>{
+    let hkm = (data.vk*data.vm[0])*(
+        data.gkm[0]*Math.sin(grados(data.tkm[0]))-data.bkm[0]*Math.cos(grados(data.tkm[0]))
+      )
+    let nkm =(data.vk*data.vm[0])*(
+      data.gkm[0]*Math.cos(grados(data.tkm[0]))+data.bkm[0]*Math.sin(grados(data.tkm[0]))
+    )
+      setHkmNkm({
+        hkm,
+        nkm
+      })
   }
 
   return (
     <div className="App">
       <div className='container'>      
       <span>vk</span>
-      <input  placeholder="vk" type="text" value={data.vk} name="vk" onChange={setNumbers}  /><br/>
+      <input  type="text" value={data.vk} name="vk" onChange={setNumbers}  /><br/>
       <span>Cantidad</span>
       <input  placeholder="cantidad" type="text" value={data.cantidad} name="cantidad" onChange={setNumbers}  /><br/>
       <span>vm</span>
@@ -77,7 +98,10 @@ function App() {
       <span>tkm</span>
       <input type="text" name="tkm" value={data.tkm.join()}disabled /><br/>
       <button onClick={calcular}>
-        Calcular
+        Calcular rapshon potencias
+      </button>
+      <button onClick={calcularRapshonMatrices}>
+        Calcular rapshon matrices
       </button>
       <button onClick={()=>setDisplay(display=>!display)}>
         {display?'Ocultar':'carlos'}
@@ -87,6 +111,12 @@ function App() {
       }
       {
         data.q_k && (<h4 className='qk'>QK : {data.q_k}</h4>)
+      }
+      {
+        dataHkmNkm.hkm &&   (<h4 className='qk'>hkm = lkm : {dataHkmNkm.hkm}</h4>)
+      }
+      {
+        dataHkmNkm.nkm &&  (<h4 className='pk'>nkm = -jkm : {dataHkmNkm.nkm}</h4>)
       }
       </div>
       <div className="pdf" style={display ? {display:'block'} : {display:'none'} }>
