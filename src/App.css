@@ -12,6 +12,7 @@ body{
 .App .container{
   max-width: 600px;
   min-width: 300px;
+  padding: 0 30px ;
 }
 .container input{
   width: 100%;
