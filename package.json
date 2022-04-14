@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "complex.js": "^2.1.1",
     "pdf-viewer-reactjs": "^2.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
